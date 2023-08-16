@@ -9,50 +9,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-// function createData(
-//   id,
-//   ProductName,
-//   division,
-//   description,
-//   squadExecuting,
-//   charges
-// ) {
-//   return { id, ProductName, division, description, squadExecuting, charges };
-// }
-
-// const rows = [
-//   createData(
-//     1,
-//     "Bill Manager",
-//     "Financial Services",
-//     "Core Mpesa Upgrade",
-//     "Bespoke Solutions ",
-//     "crq"
-//   ),
-//   createData(
-//     1,
-//     "Bill Manager",
-//     "Financial Services",
-//     "Core Mpesa Upgrade",
-//     "Bespoke Solutions ",
-//     "crq"
-//   ),
-//   createData(
-//     1,
-//     "Bill Manager",
-//     "Financial Services",
-//     "Core Mpesa Upgrade",
-//     "Bespoke Solutions ",
-//     "crq"
-//   ),
-// ];
-
 export default function BasicTable() {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8082/api/v1/products")
+    fetch(
+      "https://product-catalogue-afa79f032958.herokuapp.com/api/v1/products"
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -71,10 +35,10 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell>Number</TableCell>
-            <TableCell align="right">Product Name</TableCell>
-            <TableCell align="right">Division</TableCell>
-            <TableCell align="right">Description</TableCell>
-            <TableCell align="right">Squad Executing</TableCell>
+            <TableCell align="left">Product Name</TableCell>
+            <TableCell align="left">Division</TableCell>
+            <TableCell align="left">Description</TableCell>
+            <TableCell align="left">Squad Executing</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
